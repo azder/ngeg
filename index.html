@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>ngeg</title>
+
+    <style>
+
+        main {
+            padding: 0 100px;
+        }
+
+        article {
+            background: gainsboro;
+        }
+    </style>
+
+</head>
+<body>
+
+before application
+<hr/>
+<main ng-app="app">
+
+    <nav>menu here</nav>
+
+    <section ng-controller="manipulator-controller as mc">
+        <button type="button" ng-click="mc.onBagAdd()">Add</button>
+        <button type="button" ng-click="mc.onBagClear()">Clear</button>
+    </section>
+
+    <article ng-controller="article-controller as ac">
+        <ul>
+            <li ng-repeat="item in bag.items() track by $index">
+                <a ng-click="ac.onGreetingClick()" href="#">{{greeting}}</a>
+                {{item}}
+            </li>
+        </ul>
+    </article>
+
+</main>
+
+<hr/>
+after application
+
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
